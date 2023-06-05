@@ -1,11 +1,9 @@
 ZaitTinyFrameworkPHP
 Autor
 
-Nome: Msc CLeber Silva de Oliveira
-Email: cleber@ifsp.edu.br
-Instituições: 
-  Instituto Federal de Educação, Ciência e Tecnologia de São Paulo Campus Guarulhos
-  Universidade Mogi das Cruzes
+  Nome: Msc CLeber Silva de Oliveira
+  Email: cleber@ifsp.edu.br
+  Instituições: IFSP Campus Guarulhos e UMC
   
 Sobre o Framework
 
