@@ -1,0 +1,18 @@
+{
+	"home"		: 	{ 
+		"path" : "app/views/home.php",
+		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
+	},
+	"about"		:	{
+		"path" : "app/views/about.php",
+		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
+	},
+	"contact"	:	{
+		"path" : "app/views/contact.php",
+		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
+	},
+	"404"		:	{
+		"path" : "app/views/error404.php",
+		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
+	}
+}

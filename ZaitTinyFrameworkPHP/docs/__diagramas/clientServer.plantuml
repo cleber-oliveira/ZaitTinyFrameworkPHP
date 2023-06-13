@@ -1,0 +1,42 @@
+@startuml
+
+(*) --> "Usuario"  
+
+partition "localhost" {
+	"Usuario" --> ["Solicita URL"]"Web Browser"
+	If "localhost" then
+		--> [Sim]"Arquivo Local"
+		"Arquivo Local" --> "Web Browser" 
+	else
+		--> [URL]"Domain Name Server"
+		"Web Browser" --> ["HTTP Request"] "Web Server"
+	Endif
+	"Web Browser" --> (*)  
+}
+
+partition "Domain Name Server"{
+   " Domínio " --> " IP "
+   " IP " --> "Web Browser"
+}
+
+partition "Web Server"{
+   	If "html, jpg, png, gif " then
+		--> [Sim] "Enviar Arquivo"
+		--> [HTTP Response] "Web Browser"
+	else
+		--> [php, jsp] "Interpretador"
+		"Interpretador" --> "arquivo de saída"
+		--> [HTTP Response] "Web Browser"
+	Endif
+}
+ 
+
+
+
+
+
+
+
+@enduml
+
+

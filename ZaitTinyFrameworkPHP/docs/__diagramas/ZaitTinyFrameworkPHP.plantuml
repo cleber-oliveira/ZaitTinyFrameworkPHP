@@ -1,0 +1,56 @@
+@startuml
+
+left to right direction
+
+skinparam backgroundColor #EEEEEE
+skinparam color #0000FF
+	
+
+package "Zait Tiny Framework PHP"{
+
+	file ".htaccess"
+	file "index.php"
+	
+	package "App" {
+		package "core" {
+		  package "database" {
+			file "DBQuery.class.php"
+			file "Where.class.php"
+			file "DBConnection.class.php"
+			file "DBQueryFromAnnotations.php"
+		  }
+		  package "utils" {
+			file "UploadFiles.php"
+			file "UploadedCtrl.php"
+			file "Base64Files.php"
+			file "Mail.php"
+			file "Sanitize.class.php"
+			file "Router.class.php"
+		  }	
+		}
+		package "uploads" {
+			file " .htaccess"
+		}
+	}
+	package "public" {
+		package "assets" {
+			package "js" {
+				file "script.js"
+			}
+			package "css" {
+				   file "style.css"
+			}
+			package "images"{
+				file "logo.png"
+			}
+		}
+	}
+}
+
+note left of "index.php": Arquivo index.php\nponto de entrada\ndo aplicativo
+note left of ".htaccess": Arquivo .htaccess\npara configurações\nde redirecionamento
+note left of " .htaccess": Arquivo .htaccess\npara restrição de acesso\nà pasta de uploads
+ 
+
+@enduml
+
