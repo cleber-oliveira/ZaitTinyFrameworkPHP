@@ -4,6 +4,7 @@ namespace app\core\database;
 
 use ReflectionClass;
 use Exception;
+use app\core\utils\Sanitize;
 
 /**
  * Classe DBQueryFromAnnotations
@@ -99,14 +100,14 @@ class DBQueryFromAnnotations extends DBQuery {
      *
      * @param array $values Os valores a serem inseridos
      * @return bool Retorna true se a inserção for bem-sucedida, caso contrário, lança uma exceção
-     * @throws InvalidArgumentException Se o número de valores informados não for equivalente aos campos da tabela
+     * @throws // InvalidArgumentException Se o número de valores informados não for equivalente aos campos da tabela
      * @throws Exception Se houver violação de chave única ou estrangeira, ou qualquer outra exceção do PDO
      */
     public function insertValidated($values) {
         $values = (new Sanitize(false, false, true))->toClean($values);
         
         if (count($values) !== count($this->fieldsName)) {
-            throw new InvalidArgumentException("O número de valores informados não é equivalente aos campos da tabela!");
+            throw new \InvalidArgumentException("O número de valores informados não é equivalente aos campos da tabela!");
         }
         
         // Verificar campos de chave única
@@ -147,7 +148,7 @@ class DBQueryFromAnnotations extends DBQuery {
         
         try {
             return $this->conn->query($sql);
-        } catch (PDOException $error) {
+        } catch (\PDOException $error) {
             if ($error->getCode() == 23000) {
                 throw new Exception('Violação de chave única ou estrangeira.');
             }
