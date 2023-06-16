@@ -32,6 +32,7 @@ class DBQueryFromAnnotations extends DBQuery {
      * @throws Exception Se ocorrer um erro ao analisar as anotações
      */
     public function __construct($object) {
+        
         parent::__construct('', '', '');
         
         $reflector = new ReflectionClass(get_class($object));

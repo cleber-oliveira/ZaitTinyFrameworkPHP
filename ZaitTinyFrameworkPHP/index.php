@@ -72,6 +72,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $rootPath = __DIR__;
+
 require_once   $rootPath . "/app/etc/config.php";
 require_once   $rootPath . "/autoload.php";
 $routersFile = $rootPath . '/app/etc/routes.json';

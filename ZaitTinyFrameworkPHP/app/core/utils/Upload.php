@@ -1,6 +1,8 @@
 <?php
 namespace app\core\utils;
 
+use PhpParser\Node\Stmt\UseUse;
+
 /**
  * O script para manipulação de upload de arquivo.
  * Converter o arquivo enviado para base64 e salva.
@@ -9,6 +11,7 @@ namespace app\core\utils;
 
 
 $uploadPathDir = __DIR__."/../../../"."app/uploads/";
+
 $uploader = new UploadedCtrl();
 
 /**

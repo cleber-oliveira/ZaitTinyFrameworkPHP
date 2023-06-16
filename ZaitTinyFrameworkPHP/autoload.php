@@ -34,12 +34,14 @@
  * Assim, a utilização da PSR-4 facilita o gerenciamento das classes e arquivos na sua aplicação, tornando o código mais fácil de manter e mais eficiente.
  * 
  */
-function autoload($className) {
+
+function autoload($className) { //  new Usuarios 
+    
     $extensions = array(".class.php", ".php");
     $directories = glob(__DIR__ . '/*', GLOB_ONLYDIR);
     
     foreach ($extensions as $extension) {
-        $filename = str_replace('\\', '/', $className) . $extension;
+        $filename = str_replace('\\', '/', $className) . $extension;  // Usuarios.class.php, Usuarios.php
         foreach ($directories as $directory) {
             $filePath = $directory . '/' . $filename;
             if (file_exists($filePath)) {

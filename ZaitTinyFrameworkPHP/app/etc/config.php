@@ -27,35 +27,5 @@
  * - A sessão PHP deve estar iniciada antes de utilizar este arquivo.
  */
 
-$rootPath = __DIR__."/../..";
-
-$showErrors = true;
-
-if ($showErrors){
-    ini_set('display_errors',1);
-    ini_set('display_startup_erros',1);
-    error_reporting(E_ALL);
-}
-
-$config = [
-    // Database Configuration
-    'db_host' 		 => 'localhost',
-    'db_name' 		 => 'kukafit',
-    'db_user' 		 => 'root',
-    'db_pass' 		 => 'senha',
-    
-    // Mail Configuration
-    'email_host' 	 => 'smtp.mydomain.com',
-    'email_port' 	 =>  587,
-    'email_username' => 'my_username',
-    'email_password' => 'my_password',
-    
-    //  Path Aliases Configuration
-    "rootPath"		=> $rootPath,
-    'appPath' 		=> ( $rootPath . '/app' ),
-    'appUpload'		=> ( $rootPath . '/app/uploads'),
-];
-
-$_SESSION['config'] = $config;
 
 ?>

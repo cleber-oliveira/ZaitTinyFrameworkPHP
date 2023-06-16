@@ -1,10 +1,21 @@
 {
+
+
+	"usuario/add"		: 	{ 
+		"path" : "app/controllers/Usuario.php",
+		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
+	},
+	"usuario/del"		: 	{ 
+		"path" : "app/controllers/Usuario.php",
+		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
+	},
 	"home"		: 	{ 
 		"path" : "app/views/home.php",
 		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
 	},
 	"about"		:	{
 		"path" : "app/views/about.php",
+		"sessionKey": ["idUsuario", {"idNivelUsuario": 7 } ], 
 		"sanitize" : {"requestVars" : true, "code" : true, "sql" : true}
 	},
 	"contact"	:	{
