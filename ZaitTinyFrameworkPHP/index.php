@@ -34,35 +34,12 @@
  * # Habilita o motor de redirecionamento
  * # Isso ativa o módulo de reescrita de URL do Apache, permitindo que você manipule URLs com o Apache.
  * RewriteEngine On
- * 
- * # Redireciona todas as requisições que não sejam para a pasta public para o index.php
- * # Esta linha configura uma condição para a regra de reescrita seguinte. Ela afirma que se a URI da requisição não começar com "/public", então a regra seguinte deve ser aplicada.
- * RewriteCond %{REQUEST_URI} !^/public
- * 
- * # Estas linhas configuram condições adicionais para a regra de reescrita seguinte. Elas afirmam que se o arquivo ou diretório da requisição não existir, então a regra seguinte deve ser aplicada.
- * RewriteCond %{REQUEST_FILENAME} !-f
- * RewriteCond %{REQUEST_FILENAME} !-d
- * 
- * # Esta é a regra de reescrita que será aplicada se todas as condições acima forem atendidas. Ela redireciona todas as requisições para "index.php".
- * RewriteRule ^(.*)$ index.php [L]
- * 
- * # Ignora as requisições para os arquivos de recursos estáticos (JS, CSS, imagens). Esta linha é uma condição que afirma que se a URI da requisição não terminar com qualquer um dos tipos de arquivo listados (imagens, CSS, JS), a regra de reescrita seguinte será aplicada.
- * RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|css|js)$
- * 
- * # Redireciona todas as requisições que sejam para a pasta app ou core para o index.php
- * # Estas linhas configuram condições adicionais para a regra de reescrita seguinte. Elas afirmam que se o arquivo ou diretório da requisição não existir, então a regra seguinte deve ser aplicada.
- * RewriteCond %{REQUEST_FILENAME} !-f
- * RewriteCond %{REQUEST_FILENAME} !-d
- * # Esta é a regra de reescrita que será aplicada se todas as condições acima forem atendidas. Ela redireciona todas as requisições que começam com "app/" ou "core/" para "index.php".
- * RewriteRule ^(app|core)/(.*)$ index.php [L]
- * 
- * # Remove o index.php da URL
  * # Estas linhas configuram condições adicionais para a regra de reescrita seguinte. Elas afirmam que se o arquivo ou diretório da requisição não existir, então a regra seguinte deve ser aplicada.
  * RewriteCond %{REQUEST_FILENAME} !-f
  * RewriteCond %{REQUEST_FILENAME} !-d
  * 
  * # Esta é uma regra de reescrita que redireciona todas as requisições para "/index.php/URI", onde URI é a URI original da requisição. Isso é útil para remover "index.php" do URL.
- * RewriteRule ^(.*)$ /index.php/$1 [L]
+ * RewriteRule ^(.*)$ /index.php/$1 [QSA,L]
  * 
  */
 use app\core\utils\Router;
